@@ -1,5 +1,10 @@
 import os
 
+import cv2
+import numpy as np
+from PIL import Image
+from PIL.ImageQt import ImageQt
+from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QWidget, QGraphicsScene
@@ -14,9 +19,15 @@ class Widget(QWidget, Ui_Widget):
         self.load_images_button.clicked.connect(self.load_images_from_camera)
 
     def load_images_from_camera(self):
-        image_path = "test_images.jpeg"
-        print(image_path)
+        cv_img = np.random.randint(255)*np.ones((500, 500, 3), np.uint8)
+        rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        PIL_image = Image.fromarray(rgb_image).convert('RGB')
+        image = QPixmap.fromImage(ImageQt(PIL_image))
         scene = QGraphicsScene()
-
-        scene.addPixmap(QPixmap(image_path).scaledToWidth(1000))
+        scene.addPixmap(image.scaledToWidth(1000))
         self.graphicsView.setScene(scene)
+
+    def convertCvImage2QtImage(cv_img):
+        rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        PIL_image = Image.fromarray(rgb_image).convert('RGB')
+        return QPixmap.fromImage(ImageQt(PIL_image))
