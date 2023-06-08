@@ -19,12 +19,12 @@ class Widget(QWidget, Ui_Widget):
         self.load_images_button.clicked.connect(self.load_images_from_camera)
 
     def load_images_from_camera(self):
-        cv_img = np.random.randint(255)*np.ones((500, 500, 3), np.uint8)
+        cv_img = np.random.randint(255, size=(250, 250, 3),dtype=np.uint8)
         rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         PIL_image = Image.fromarray(rgb_image).convert('RGB')
         image = QPixmap.fromImage(ImageQt(PIL_image))
         scene = QGraphicsScene()
-        scene.addPixmap(image.scaledToWidth(1000))
+        scene.addPixmap(image)
         self.graphicsView.setScene(scene)
 
     def convertCvImage2QtImage(cv_img):
