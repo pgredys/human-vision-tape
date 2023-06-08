@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'widget.ui'
+##
+## Created by: Qt User Interface Compiler version 6.5.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
@@ -14,11 +23,17 @@ class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(1072, 633)
-        self.horizontalLayout_3 = QHBoxLayout(Widget)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        Widget.resize(1303, 724)
+        Widget.setAutoFillBackground(False)
+        self.verticalLayout_2 = QVBoxLayout(Widget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
         self.graphicsView = QGraphicsView(Widget)
         self.graphicsView.setObjectName(u"graphicsView")
         self.graphicsView.setEnabled(True)
@@ -44,40 +59,57 @@ class Ui_Widget(object):
 
         self.verticalLayout.addWidget(self.line_2)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(Widget)
         self.label.setObjectName(u"label")
 
-        self.horizontalLayout_2.addWidget(self.label)
+        self.horizontalLayout.addWidget(self.label)
 
-        self.horizontalSlider = QSlider(Widget)
-        self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setOrientation(Qt.Horizontal)
+        self.min_dist_slider = QSlider(Widget)
+        self.min_dist_slider.setObjectName(u"min_dist_slider")
+        self.min_dist_slider.setMaximum(150)
+        self.min_dist_slider.setSingleStep(5)
+        self.min_dist_slider.setOrientation(Qt.Horizontal)
 
-        self.horizontalLayout_2.addWidget(self.horizontalSlider)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_2 = QLabel(Widget)
-        self.label_2.setObjectName(u"label_2")
-
-        self.horizontalLayout.addWidget(self.label_2)
-
-        self.horizontalSlider_2 = QSlider(Widget)
-        self.horizontalSlider_2.setObjectName(u"horizontalSlider_2")
-        self.horizontalSlider_2.setOrientation(Qt.Horizontal)
-
-        self.horizontalLayout.addWidget(self.horizontalSlider_2)
+        self.horizontalLayout.addWidget(self.min_dist_slider)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.label_2 = QLabel(Widget)
+        self.label_2.setObjectName(u"label_2")
 
-        self.horizontalLayout_3.addLayout(self.verticalLayout)
+        self.horizontalLayout_2.addWidget(self.label_2)
+
+        self.max_dist_slider = QSlider(Widget)
+        self.max_dist_slider.setObjectName(u"max_dist_slider")
+        self.max_dist_slider.setMaximum(150)
+        self.max_dist_slider.setSingleStep(5)
+        self.max_dist_slider.setValue(150)
+        self.max_dist_slider.setOrientation(Qt.Horizontal)
+
+        self.horizontalLayout_2.addWidget(self.max_dist_slider)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+
+        self.line_3 = QFrame(Widget)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout.addWidget(self.line_3)
+
+        self.save_button = QPushButton(Widget)
+        self.save_button.setObjectName(u"save_button")
+
+        self.verticalLayout.addWidget(self.save_button)
+
+
+        self.verticalLayout_2.addLayout(self.verticalLayout)
 
 
         self.retranslateUi(Widget)
@@ -90,5 +122,6 @@ class Ui_Widget(object):
         self.load_images_button.setText(QCoreApplication.translate("Widget", u"load Image", None))
         self.label.setText(QCoreApplication.translate("Widget", u"Min distance from camera", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Max distance from camera", None))
+        self.save_button.setText(QCoreApplication.translate("Widget", u"Save images", None))
     # retranslateUi
 
