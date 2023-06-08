@@ -23,7 +23,7 @@ class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(1303, 724)
+        Widget.resize(1320, 765)
         Widget.setAutoFillBackground(False)
         self.verticalLayout_2 = QVBoxLayout(Widget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -74,6 +74,11 @@ class Ui_Widget(object):
 
         self.horizontalLayout.addWidget(self.min_dist_slider)
 
+        self.min_dist_value_label = QLabel(Widget)
+        self.min_dist_value_label.setObjectName(u"min_dist_value_label")
+
+        self.horizontalLayout.addWidget(self.min_dist_value_label)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
@@ -86,12 +91,17 @@ class Ui_Widget(object):
 
         self.max_dist_slider = QSlider(Widget)
         self.max_dist_slider.setObjectName(u"max_dist_slider")
-        self.max_dist_slider.setMaximum(150)
+        self.max_dist_slider.setMaximum(100)
         self.max_dist_slider.setSingleStep(5)
-        self.max_dist_slider.setValue(150)
+        self.max_dist_slider.setValue(100)
         self.max_dist_slider.setOrientation(Qt.Horizontal)
 
         self.horizontalLayout_2.addWidget(self.max_dist_slider)
+
+        self.max_dist_value_label = QLabel(Widget)
+        self.max_dist_value_label.setObjectName(u"max_dist_value_label")
+
+        self.horizontalLayout_2.addWidget(self.max_dist_value_label)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -121,7 +131,9 @@ class Ui_Widget(object):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Form", None))
         self.load_images_button.setText(QCoreApplication.translate("Widget", u"load Image", None))
         self.label.setText(QCoreApplication.translate("Widget", u"Min distance from camera", None))
+        self.min_dist_value_label.setText(QCoreApplication.translate("Widget", u"0 m", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Max distance from camera", None))
+        self.max_dist_value_label.setText(QCoreApplication.translate("Widget", u"10m", None))
         self.save_button.setText(QCoreApplication.translate("Widget", u"Save images", None))
     # retranslateUi
 

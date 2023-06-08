@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from PIL.ImageQt import ImageQt
+from PySide6 import QtGui
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
@@ -26,12 +27,13 @@ class Widget(QWidget, Ui_Widget):
     def sliderChanged(self):
         print(self.sender().objectName() + " : " + str(self.sender().value()))
         print(self.min_dist_slider.value())
+
     def load_images_from_camera(self):
-        images = distance_segmentation_from_515(self.min_dist_slider.value()/10, self.max_dist_slider.value()/10)
+        images = distance_segmentation_from_515(self.min_dist_slider.value() / 10, self.max_dist_slider.value() / 10)
         rgb_image = cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
         PIL_image = Image.fromarray(rgb_image).convert('RGB')
         image = QPixmap.fromImage(ImageQt(PIL_image))
         scene = QGraphicsScene()
         scene.addPixmap(image)
         self.graphicsView.setScene(scene)
-        print("image loaded")
+        # print("image loaded")
