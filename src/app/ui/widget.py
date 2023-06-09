@@ -11,12 +11,15 @@ class Widget(QWidget, Ui_Widget):
 
     def __init__(self):
         super().__init__()
+
         self.PIL_image = Image.new(mode="RGB", size=(1000,500), color='#00004c')
         self.setupUi(self)
         self.setWindowTitle("Human Segmentation")
+
         image = QPixmap.fromImage(ImageQt(self.PIL_image))
         scene = QGraphicsScene()
         scene.addPixmap(image)
+
         self.graphicsView.setScene(scene)
         self.min_dist_slider.valueChanged.connect(self.sliderChanged)
         self.max_dist_slider.valueChanged.connect(self.sliderChanged)
