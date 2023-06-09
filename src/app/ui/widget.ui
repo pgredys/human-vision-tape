@@ -62,7 +62,7 @@
        <item>
         <widget class="QSlider" name="min_dist_slider">
          <property name="maximum">
-          <number>150</number>
+          <number>100</number>
          </property>
          <property name="singleStep">
           <number>5</number>

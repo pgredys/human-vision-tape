@@ -68,7 +68,7 @@ class Ui_Widget(object):
 
         self.min_dist_slider = QSlider(Widget)
         self.min_dist_slider.setObjectName(u"min_dist_slider")
-        self.min_dist_slider.setMaximum(150)
+        self.min_dist_slider.setMaximum(100)
         self.min_dist_slider.setSingleStep(5)
         self.min_dist_slider.setOrientation(Qt.Horizontal)
 

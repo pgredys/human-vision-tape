@@ -40,8 +40,6 @@ def distance_segmentation_from_515(min_dist: float, max_dist: float) -> object:
     return np.hstack((bg_removed, depth_colormap))
 
 
-
-
 if __name__ == "__main__":
     pipeline = rs.pipeline()
     config = rs.config()
