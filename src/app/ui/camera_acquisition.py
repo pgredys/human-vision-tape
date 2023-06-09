@@ -9,8 +9,10 @@ import PIL
 def distance_segmentation_from_515(min_dist: float, max_dist: float) -> object:
     pipeline = rs.pipeline()
     config = rs.config()
+
     config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
     config.enable_stream(rs.stream.color, 960, 540, rs.format.bgr8, 30)
+
     profile = pipeline.start(config)
 
     depth_sensor = profile.get_device().first_depth_sensor()

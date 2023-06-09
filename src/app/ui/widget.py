@@ -19,8 +19,8 @@ class Widget(QWidget, Ui_Widget):
         image = QPixmap.fromImage(ImageQt(self.PIL_image))
         scene = QGraphicsScene()
         scene.addPixmap(image)
-
         self.graphicsView.setScene(scene)
+
         self.min_dist_slider.valueChanged.connect(self.sliderChanged)
         self.max_dist_slider.valueChanged.connect(self.sliderChanged)
         self.load_images_button.clicked.connect(self.load_images_from_camera)
@@ -36,8 +36,10 @@ class Widget(QWidget, Ui_Widget):
     def load_images_from_camera(self):
         images_cv2 = distance_segmentation_from_515(self.min_dist_slider.value() / 10, self.max_dist_slider.value() / 10)
         rgb_image = cv2.cvtColor(images_cv2, cv2.COLOR_BGR2RGB)
+
         self.PIL_image = Image.fromarray(rgb_image).convert('RGB')
         image = QPixmap.fromImage(ImageQt(self.PIL_image))
+
         scene = QGraphicsScene()
         scene.addPixmap(image)
         self.graphicsView.setScene(scene)
@@ -50,6 +52,5 @@ class Widget(QWidget, Ui_Widget):
             '',
             "ReStructuredText Files (*.png)"
         )
+
         self.PIL_image.save(file[0])
-
-
